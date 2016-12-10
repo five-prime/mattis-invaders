@@ -2,23 +2,28 @@ var maddog;
 var iraq = [];
 var ega = [];
 var score = 0;
+var sadam;
 function setup(){
   img = loadImage("maddog.png");
   imgTwo = loadImage("iraq.png");
   imgThree = loadImage("ega.jpg");
+  imgFour = loadImage("sadam.png");
   createCanvas(600,400);
   maddog = new Maddog();
-    // ega = new Ega(width/2, height/2);
+  sadam = new Sadam();
   for (var i = 0; i < 5; i++){
     iraq[i] = new Iraq(i*80+80, 60);
   };
 
+//setup
+};
 
-}
 function draw(){
   background(51);
   maddog.show();
   maddog.move();
+  sadam.show();
+  sadam.move(5);
 
   for (var i=0; i < ega.length; i++){
     ega[i].show();
@@ -56,8 +61,22 @@ for (var i=iraq.length-1; i>=0; i--){
 
 };
 
+if (sadam.missed()){
+
+  console.log('done');
+
+};
+
+if(sadam.hit()){
+  console.log('hit');
+
+} else {};
+
 //draw
 };
+
+
+
 function keyReleased(){
   if (key != ' '){
   maddog.setDir(0);
