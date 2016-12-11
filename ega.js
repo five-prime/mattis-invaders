@@ -15,8 +15,8 @@ this.toDelete = true;
   this.hits = function(iraq){
 
 
-    var d = dist(this.x, this.y, iraq.x, iraq.y);
-    if (d < this.r + iraq.r){
+    if (this.x < iraq.x + 50 && this.x + 50 > iraq.x && this.y < iraq.y + 50 && 50 + this.y > iraq.y){
+
       return true;
 
     }

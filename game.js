@@ -3,11 +3,18 @@ var iraq = [];
 var ega = [];
 var score = 0;
 var sadam;
-function setup(){
+var health = 100;
+function preload(){
+
   img = loadImage("maddog.png");
   imgTwo = loadImage("iraq.png");
   imgThree = loadImage("ega.jpg");
   imgFour = loadImage("sadam.png");
+
+}
+
+function setup(){
+
   createCanvas(600,400);
   maddog = new Maddog();
   sadam = new Sadam();
@@ -23,8 +30,18 @@ function draw(){
   maddog.show();
   maddog.move();
   sadam.show();
-  sadam.move(5);
+  sadam.update();
+if (sadam.update() == false){
 
+health = health -1;
+console.log(health);
+};
+if (health == 0){
+sadam.stop();
+maddog.stop();
+// ega.gone();
+// gameover();
+}
   for (var i=0; i < ega.length; i++){
     ega[i].show();
     ega[i].move();
@@ -55,22 +72,14 @@ for (var i=iraq.length-1; i>=0; i--){
   if (iraq[i].toDelete){
 
     iraq.splice(i,1);
-    score += 1;
+    score += 100;
     console.log(score);
   };
 
 };
 
-if (sadam.missed()){
 
-  console.log('done');
 
-};
-
-if(sadam.hit()){
-  console.log('hit');
-
-} else {};
 
 //draw
 };
