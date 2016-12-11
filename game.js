@@ -4,8 +4,10 @@ var ega = [];
 var score = 0;
 var sadam;
 var health = 100;
-function preload(){
+var vilescum = 7;
 
+function preload(){
+  //loads all images and assigns them variables
   img = loadImage("maddog.png");
   imgTwo = loadImage("iraq.png");
   imgThree = loadImage("ega.jpg");
@@ -16,10 +18,13 @@ function preload(){
 function setup(){
 
   createCanvas(600,400);
+  //creates new 'ship'
   maddog = new Maddog();
+  //creates new falling object
   sadam = new Sadam();
-  for (var i = 0; i < 5; i++){
-    iraq[i] = new Iraq(i*80+80, 60);
+  //displays targets
+  for (var i = 0; i < vilescum; i++){
+    iraq[i] = new Iraq(i*75+50, 50);
   };
 
 //setup
@@ -36,11 +41,8 @@ if (sadam.update() == false){
 health = health -1;
 console.log(health);
 };
-if (health == 0){
-sadam.stop();
-maddog.stop();
-// ega.gone();
-// gameover();
+if (health === 0){
+noLoop();
 }
   for (var i=0; i < ega.length; i++){
     ega[i].show();
@@ -80,7 +82,10 @@ for (var i=iraq.length-1; i>=0; i--){
 
 
 
+if (score == vilescum * 100){
 
+
+};
 //draw
 };
 

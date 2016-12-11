@@ -9,6 +9,7 @@ function Maddog(){
   this.show = function(){
 
     image(img, this.x, this.y, 50, 50);
+    this.x = constrain(this.x, 0,width - 55);
 
   };
   this.setDir = function(dir){
