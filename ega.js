@@ -1,11 +1,10 @@
 function Ega(x, y){
   this.x = x;
   this.y = y;
-  this.r = 15;
   this.toDelete = false;
 
   this.show = function(){
-    image(imgThree, this.x, this.y, this.r*2, this.r*2);
+    image(imgThree, this.x, this.y, 20,20);
   };
 this.gone = function(){
 this.toDelete = true;

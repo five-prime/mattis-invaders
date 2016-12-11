@@ -1,9 +1,18 @@
+//objects
+//displays remaining health
+var healthbar;
+//displays score
+var scorebox;
+//sprite
 var maddog;
+//falling obstacle
+var sadam;
+//arrays
 var iraq = [];
 var ega = [];
+//metrics
 var score = 0;
-var sadam;
-var health = 100;
+var health = 519;
 var vilescum = 7;
 
 function preload(){
@@ -17,8 +26,8 @@ function preload(){
 
 function setup(){
 
-  createCanvas(600,400);
-  //creates new 'ship'
+  createCanvas(600,500);
+  //creates new sprite
   maddog = new Maddog();
   //creates new falling object
   sadam = new Sadam();
@@ -26,27 +35,43 @@ function setup(){
   for (var i = 0; i < vilescum; i++){
     iraq[i] = new Iraq(i*75+50, 50);
   };
-
+  //healthbar display
+  healthbar = new Healthbar();
+  //score display
+  scorebox = new Scorebox();
 //setup
 };
 
 function draw(){
   background(51);
+  //shows sprite and calls move
   maddog.show();
   maddog.move();
+  //shows falling object (at random point on X axis) and calls update (to make it fall)
   sadam.show();
   sadam.update();
-if (sadam.update() == false){
+  //shows stats.js
+  healthbar.show(300);
+  scorebox.show();
 
-health = health -1;
-console.log(health);
+
+
+if (sadam.update() == false){
+//while fallings object is intersecting with sprite, deduct health points.
+//12 gives the right ratio of healthbar indicated and actual remaining health
+health = health-12;
+
 };
-if (health === 0){
+//once the health runs out, end game
+if (health <= 0){
 noLoop();
-}
-  for (var i=0; i < ega.length; i++){
+};
+
+//creates array of projectiles, their coordinates are set in the keypress function
+for (var i=0; i < ega.length; i++){
     ega[i].show();
     ega[i].move();
+    //hit detection
     for (var j=0; j<iraq.length; j++){
       if (ega[i].hits(iraq[j])){
         iraq[j].shrink();
@@ -59,7 +84,7 @@ noLoop();
     };
 
   };
-
+//displays remaining targets
   for (var i=0; i < iraq.length; i++){
     iraq[i].show();
 
@@ -81,14 +106,15 @@ for (var i=iraq.length-1; i>=0; i--){
 };
 
 
-
-if (score == vilescum * 100){
-
-
+//new level setup
+if (score === (vilescum * 100)){
+console.log('again somehow idk how');
 };
+
+
+
 //draw
 };
-
 
 
 function keyReleased(){

@@ -68,4 +68,4 @@ this.stop = function(){
   this.velocity = 0;
 };
 
-}
+};
