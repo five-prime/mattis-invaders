@@ -3,7 +3,7 @@ function Iraq(x, y){
   this.y = y;
   this.r = 30;
   this.toDelete = false;
-  var lvl = imgTwo
+ 
 
   this.shrink = function(){
     if (this.r == 5){this.toDelete = true;}else{
@@ -12,7 +12,7 @@ function Iraq(x, y){
   };
 
   this.show = function(){
-    image(lvl, this.x, this.y, this.r*2, this.r*2);
+    image(imgTwo, this.x, this.y, this.r*2, this.r*2);
   }
 
 };

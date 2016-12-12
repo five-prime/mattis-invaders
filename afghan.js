@@ -3,11 +3,12 @@ function Afghan(x, y){
   this.y = y;
   this.r = 30;
   this.toDelete = false;
-
+ 
 
   this.shrink = function(){
     if (this.r == 5){this.toDelete = true;}else{
     this.r -= 5;
+
 };
   };
 

@@ -11,10 +11,10 @@ this.toDelete = true;
 
 
 };
-  this.hits = function(iraq){
+  this.hits = function(target){
 
 
-    if (this.x < iraq.x + 50 && this.x + 50 > iraq.x && this.y < iraq.y + 50 && 50 + this.y > iraq.y){
+    if (this.x < target.x + 50 && this.x + 50 > target.x && this.y < target.y + 50 && 50 + this.y > target.y){
 
       return true;
 
@@ -26,26 +26,24 @@ this.toDelete = true;
 
 
   };
+
+  this.hitsA = function(afghan){    if (this.x < afghan.x + 50 && this.x + 50 > afghan.x && this.y < afghan.y + 50 && 50 + this.y > afghan.y){
+
+      return true;
+
+    }
+    else{
+
+      return false;
+    };
+}
   this.move = function(){
     this.y = this.y-5;
 
 
   };
 
-   this.hits = function(afghan){
-
-
-    if (this.x < afghan.x + 50 && this.x + 50 > afghan.x && this.y < afghan.y + 50 && 50 + this.y > afghan.y){
-
-      return true;
-
-    }
-    else{
-
-      return false;
-    };
 
 
   };
 
-};

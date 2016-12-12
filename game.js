@@ -10,11 +10,10 @@ var sadam;
 //arrays
 var iraq = [];
 var ega = [];
-var afghan = []
 //metrics
 var score = 0;
 var health = 519;
-var scum = 1;
+var scum = 8;
 
 
 function preload(){
@@ -40,6 +39,9 @@ function setup(){
   };
 
 
+
+
+
   //healthbar display
   healthbar = new Healthbar();
   //score display
@@ -62,6 +64,8 @@ function draw(){
 
 
 
+
+
 if (sadam.update() == false){
 //while fallings object is intersecting with sprite, deduct health points.
 //12 gives the right ratio of healthbar indicated and actual remaining health
@@ -73,28 +77,28 @@ if (health <= 0){
 noLoop();
 };
 
-//creates array of projectiles, their coordinates are set in the keypress function
-for (var i=0; i < ega.length; i++){
-    ega[i].show();
-    ega[i].move();
-    //hit detection
-    for (var j=0; j<iraq.length; j++){
-      if (ega[i].hits(iraq[j])){
-        iraq[j].shrink();
-        ega[i].gone();
-
-      } 
-
- 
-  
-};
-};
-
 //displays remaining targets
   for (var i=0; i < iraq.length; i++){
     iraq[i].show();
 
   };  
+//creates array of projectiles, their coordinates are set in the keypress function
+for (var i=0; i < ega.length; i++){
+    ega[i].show();
+    ega[i].move();
+    //hit detection
+   if(score <= (scum*100)){ for (var j=0; j<iraq.length; j++){
+      if (ega[i].hits(iraq[j])){
+        iraq[j].shrink();
+        ega[i].gone();
+
+      }; 
+  
+    };  
+
+} 
+
+};
 
   for (var i=ega.length-1; i>=0; i--){
     if (ega[i].toDelete){
@@ -102,6 +106,7 @@ for (var i=0; i < ega.length; i++){
       ega.splice(i,1);
     }
 };
+
 for (var i=iraq.length-1; i>=0; i--){
   if (iraq[i].toDelete){
 
@@ -113,23 +118,14 @@ for (var i=iraq.length-1; i>=0; i--){
 };
 
 
+
+  
+if (score == (scum * 100)){
+
 //new level setup
-
-  
-  if (score === (scum * 100)){
-      for (var a = 0; a < scum; a++){
-    afghan[a] = new Afghan(a*75+50,50);
-
   };
-    console.log('hi');
-  for (var i=0; i < afghan.length; i++){
-    afghan[i].show();
 
-  };
-  
-    
-};
-//draw
+  //draw
 };
 
 
