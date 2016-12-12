@@ -13,7 +13,7 @@ var ega = [];
 //metrics
 var score = 0;
 var health = 519;
-var scum = 1;
+var scum = 8;
 var afghan = [];
 
 function preload(){
@@ -83,7 +83,9 @@ if(score < (scum*100)){for (var i=0; i < ega.length; i++){
       }; 
   
     };   
-};}else if(score >= (scum * 100)){
+};
+
+}else if(score >= (scum * 100)){
 
     for (var i = 0; i < scum; i++){
     afghan[i] = new Afghan(i*75+50, 50);
