@@ -13,8 +13,8 @@ var ega = [];
 //metrics
 var score = 0;
 var health = 519;
-var scum = 8;
-
+var scum = 1;
+var afghan = [];
 
 function preload(){
   //loads all images and assigns them variables
@@ -33,14 +33,16 @@ function setup(){
   maddog = new Maddog();
   //creates new falling object
   sadam = new Sadam();
-  //displays targets
+  // creates target arrays
   for (var i = 0; i < scum; i++){
     iraq[i] = new Iraq(i*75+50, 50);
-  };
+  }; 
+    for (var i = 0; i < scum; i++){
+    afghan[i] = new Afghan(i*75+50, 50); 
+  
 
-
-
-
+    };
+  
 
   //healthbar display
   healthbar = new Healthbar();
@@ -63,43 +65,45 @@ function draw(){
   scorebox.show();
 
 
-
-
-
-if (sadam.update() == false){
-//while fallings object is intersecting with sprite, deduct health points.
-//12 gives the right ratio of healthbar indicated and actual remaining health
-health = health-12;
-
-};
-//once the health runs out, end game
-if (health <= 0){
-noLoop();
-};
-
 //displays remaining targets
   for (var i=0; i < iraq.length; i++){
     iraq[i].show();
 
   };  
 //creates array of projectiles, their coordinates are set in the keypress function
-for (var i=0; i < ega.length; i++){
+if(score < (scum*100)){for (var i=0; i < ega.length; i++){
     ega[i].show();
     ega[i].move();
     //hit detection
-   if(score <= (scum*100)){ for (var j=0; j<iraq.length; j++){
+    for (var j=0; j<iraq.length; j++){
       if (ega[i].hits(iraq[j])){
         iraq[j].shrink();
         ega[i].gone();
 
       }; 
   
-    };  
+    };   
+};}else if(score >= (scum * 100)){
 
-} 
+    for (var i = 0; i < scum; i++){
+    afghan[i] = new Afghan(i*75+50, 50);
+    afghan[i].show();};
+    for (var i=0; i < ega.length; i++){
+    ega[i].show();
+    ega[i].move();
+    //hit detection
+    for (var j=0; j<afghan.length; j++){
+      if (ega[i].hits(afghan[j])){
+        afghan[j].shrink();
+        ega[i].gone();
+
+      }; 
+    
+};
+  };
+
 
 };
-
   for (var i=ega.length-1; i>=0; i--){
     if (ega[i].toDelete){
 
@@ -119,11 +123,19 @@ for (var i=iraq.length-1; i>=0; i--){
 
 
 
-  
-if (score == (scum * 100)){
 
-//new level setup
-  };
+
+//falling obstacles / health
+if (sadam.update() == false){
+//while fallings object is intersecting with sprite, deduct health points.
+//12 gives the right ratio of healthbar indicated and actual remaining health
+health = health-12;
+
+};
+//once the health runs out, end game
+if (health <= 0){
+noLoop();
+};
 
   //draw
 };

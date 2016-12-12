@@ -1,4 +1,4 @@
-function Afghan(x, y){
+function Badguy(x,y){
   this.x = x;
   this.y = y;
   this.r = 30;
@@ -7,8 +7,7 @@ function Afghan(x, y){
 
   this.shrink = function(){
     if (this.r == 5){this.toDelete = true;}else{
-    console.log('goodone');
-    this.x = this.x*2;
+    this.r -= 5;
 };
   };
 

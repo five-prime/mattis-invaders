@@ -27,16 +27,6 @@ this.toDelete = true;
 
   };
 
-  this.hitsA = function(afghan){    if (this.x < afghan.x + 50 && this.x + 50 > afghan.x && this.y < afghan.y + 50 && 50 + this.y > afghan.y){
-
-      return true;
-
-    }
-    else{
-
-      return false;
-    };
-}
   this.move = function(){
     this.y = this.y-5;
 
