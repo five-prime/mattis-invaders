@@ -1,6 +1,6 @@
 
 function Healthbar(){
-  this.x = 80;
+  this.x = 100;
   this.y = height-51;
 
 
@@ -9,7 +9,7 @@ function Healthbar(){
     noStroke();
     //red box rests behind green
     fill('red');
-    rect(this.x, this.y, width-81, 50);
+    rect(this.x, this.y, width-200 , 50);
     //health remaining
     fill('green');
     rect(this.x, this.y, health, 50);

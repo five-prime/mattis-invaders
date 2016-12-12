@@ -13,9 +13,9 @@ var ega = [];
 //metrics
 var score = 0;
 var health = 519;
-var vilescum = 7;
+var vilescum = 1;
 var afghan = [];
-var afghaniscum = 5;
+var afghaniscum = 4;
 
 function preload(){
   //loads all images and assigns them variables
@@ -38,8 +38,8 @@ function setup(){
   for (var i = 0; i < vilescum; i++){
     iraq[i] = new Iraq(i*75+50, 50);
   };
-  for (var i=0; i < afghaniscum; i++){
-    afghan[i] = new Afghan();
+  for (var s=0; s < afghaniscum; s++){
+    afghan[s] = new Afghan(s*75+50, 50);
 
 
 
@@ -126,26 +126,11 @@ for (m=0; m<afghan.length;m++){
     afghan[0].show();
 
   };
-  for (var p=ega.length-1; p>=0; p--){
-    if (ega[p].toDelete){
-
-      ega.splice(i,1);
-    }
-};
-for (var q=afghan.length-1; q>=0; q--){
-  if (afghan[q].toDelete){
-
-    afghan.splice(q,1);
-    score += 100;
-    console.log(score);
-  };
-
-};
-
-};
+ 
 };
 
 
+};
 
 
 
