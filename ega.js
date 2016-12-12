@@ -4,7 +4,7 @@ function Ega(x, y){
   this.toDelete = false;
 
   this.show = function(){
-    image(imgThree, this.x, this.y, 20,20);
+    image(imgThree, this.x, this.y, 35,35);
   };
 this.gone = function(){
 this.toDelete = true;

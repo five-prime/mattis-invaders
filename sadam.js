@@ -5,7 +5,7 @@ function Sadam() {
   this.x = random(600);
 
 
-  this.gravity = .5;
+  this.gravity = .35;
   this.velocity = 0;
 
   this.show = function() {

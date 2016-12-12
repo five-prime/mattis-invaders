@@ -5,9 +5,12 @@ function Healthbar(){
 
 
   this.show = function(){
+    //draws rectangle with no outline
     noStroke();
+    //red box rests behind green
     fill('red');
     rect(this.x, this.y, width-81, 50);
+    //health remaining
     fill('green');
     rect(this.x, this.y, health, 50);
 
