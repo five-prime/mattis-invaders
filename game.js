@@ -10,12 +10,12 @@ var sadam;
 //arrays
 var iraq = [];
 var ega = [];
+var afghan = []
 //metrics
 var score = 0;
 var health = 519;
-var vilescum = 1;
-var afghan = [];
-var afghaniscum = 4;
+var scum = 1;
+
 
 function preload(){
   //loads all images and assigns them variables
@@ -35,15 +35,11 @@ function setup(){
   //creates new falling object
   sadam = new Sadam();
   //displays targets
-  for (var i = 0; i < vilescum; i++){
+  for (var i = 0; i < scum; i++){
     iraq[i] = new Iraq(i*75+50, 50);
   };
-  for (var s=0; s < afghaniscum; s++){
-    afghan[s] = new Afghan(s*75+50, 50);
 
 
-
-  };
   //healthbar display
   healthbar = new Healthbar();
   //score display
@@ -52,6 +48,7 @@ function setup(){
 };
 
 function draw(){
+
   background(51);
   //shows sprite and calls move
   maddog.show();
@@ -86,19 +83,19 @@ for (var i=0; i < ega.length; i++){
         iraq[j].shrink();
         ega[i].gone();
 
+      } 
 
-      };
+ 
+  
+};
+};
 
-
-    };
-
-
-  };
 //displays remaining targets
   for (var i=0; i < iraq.length; i++){
     iraq[i].show();
 
-  };
+  };  
+
   for (var i=ega.length-1; i>=0; i--){
     if (ega[i].toDelete){
 
@@ -117,25 +114,21 @@ for (var i=iraq.length-1; i>=0; i--){
 
 
 //new level setup
-if (score === (vilescum * 100)){
-for (m=0; m<afghan.length;m++){
- 
+
   
-  afghan[m].show(m*75+50, 50);
-  for (var o=0; o < afghan.length; o++){
-    afghan[0].show();
+  if (score === (scum * 100)){
+      for (var a = 0; a < scum; a++){
+    afghan[a] = new Afghan(a*75+50,50);
 
   };
- 
+    console.log('hi');
+  for (var i=0; i < afghan.length; i++){
+    afghan[i].show();
+
+  };
+  
+    
 };
-
-
-};
-
-
-
-
-
 //draw
 };
 

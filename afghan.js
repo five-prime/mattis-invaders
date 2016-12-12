@@ -1,18 +1,18 @@
-function Afghan(){
-
-this.r = 25;
-    this.show = function(x,y){
-         image(imgFive, x, y, this.r*2, this.r*2);
-
-
-    };
+function Afghan(x, y){
+  this.x = x;
+  this.y = y;
+  this.r = 30;
+  this.toDelete = false;
 
 
   this.shrink = function(){
     if (this.r == 5){this.toDelete = true;}else{
-    this.r -= 2.5;
+    this.r -= 5;
 };
   };
 
-    //Afghan
+  this.show = function(){
+    image(imgFive, this.x, this.y, this.r*2, this.r*2);
+  }
+
 };
