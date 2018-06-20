@@ -14,7 +14,6 @@ var ega = [];
 var score = 0;
 var health = 519;
 var scum = 8;
-var afghan = [];
 
 function preload(){
   //loads all images and assigns them variables
@@ -88,8 +87,6 @@ if(score < (scum*100)){for (var i=0; i < ega.length; i++){
   };  
   };
 
-
-};
   for (var i=ega.length-1; i>=0; i--){
     if (ega[i].toDelete){
 
@@ -120,7 +117,7 @@ health = health-12;
 };
 //once the health runs out, end game
 if (health <= 0){
-noLoop();
+noLoop()
 };
 
   //draw
