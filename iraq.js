@@ -13,6 +13,10 @@ function Iraq(x, y){
 
   this.show = function(){
     image(imgTwo, this.x, this.y, this.r*2, this.r*2);
+  };
+  this.showNext = function(){
+    image(imgFive, this.x, this.y, this.r*2, this.r*2);
+    
   }
 
 };

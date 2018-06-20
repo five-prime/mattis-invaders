@@ -37,12 +37,7 @@ function setup(){
   for (var i = 0; i < scum; i++){
     iraq[i] = new Iraq(i*75+50, 50);
   }; 
-    for (var i = 0; i < scum; i++){
-    afghan[i] = new Afghan(i*75+50, 50); 
-  
-
-    };
-  
+   
 
   //healthbar display
   healthbar = new Healthbar();
@@ -87,21 +82,10 @@ if(score < (scum*100)){for (var i=0; i < ega.length; i++){
 
 }else if(score >= (scum * 100)){
 
-    for (var i = 0; i < scum; i++){
-    afghan[i] = new Afghan(i*75+50, 50);
-    afghan[i].show();};
-    for (var i=0; i < ega.length; i++){
-    ega[i].show();
-    ega[i].move();
-    //hit detection
-    for (var j=0; j<afghan.length; j++){
-      if (ega[i].hits(afghan[j])){
-        afghan[j].shrink();
-        ega[i].gone();
+    for (var i=0; i < iraq.length; i++){
+    iraq[i].showNext();
 
-      }; 
-    
-};
+  };  
   };
 
 
